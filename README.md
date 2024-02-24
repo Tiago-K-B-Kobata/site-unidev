@@ -1,5 +1,5 @@
-npm i 
+" npm i "
 para instalar as dependencias
 
-npm start 
+" npm start "
 para rodar o projeto
