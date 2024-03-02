@@ -1,53 +1,101 @@
-import { Card, CardContent, CardMedia, Grid, Paper, Typography } from "@mui/material";
-import { typography } from "@mui/system";
+import { CardContent, CardHeader, CardMedia, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
+import db1 from "./Assets/db1.jpeg";
+import elotech from "./Assets/elotech.jpeg";
+import workInTech from "./Assets/workIntech.jpeg";
+import palestra from "./Assets/palestra.jpeg";
 
 const itens = [
     {
-        img: 'https://images.pexels.com/photos/11650554/pexels-photo-11650554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        texto: 'Na universidade de TI, os alunos passam mais tempo debugando suas vidas do que seus códigos, onde café quente e pizzas com mais commits do que toppings reinam, e os professores são oráculos lançando desafios, projetos em grupo são corridas malucas para resolver bugs enquanto se mantém a sanidade - ah, a vida na universidade de TI!'
+        title: "DB1",
+        img: `${db1}`,
+        text: 'Visita Técnica na DB1 organizada pela unidev'
     },
     {
-        img: 'https://images.pexels.com/photos/19990334/pexels-photo-19990334/free-photo-of-close-up-of-yellow-flowers.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        texto: 'Na universidade de TI, os alunos passam mais tempo debugando suas vidas do que seus códigos, onde café quente e pizzas com mais commits do que toppings reinam, e os professores são oráculos lançando desafios, projetos em grupo são corridas malucas para resolver bugs enquanto se mantém a sanidade - ah, a vida na universidade de TI!'
+        title: "Elotech",
+        img: `${elotech}`,
+        text: 'Visita Técnica na Elotech organizada pela unidev'
     },
     {
-        img: 'https://images.pexels.com/photos/20327411/pexels-photo-20327411/free-photo-of-three-colours.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        texto: 'Na universidade de TI, os alunos passam mais tempo debugando suas vidas do que seus códigos, onde café quente e pizzas com mais commits do que toppings reinam, e os professores são oráculos lançando desafios, projetos em grupo são corridas malucas para resolver bugs enquanto se mantém a sanidade - ah, a vida na universidade de TI!'
+        title: "Evento Work in Tech",
+        img: `${workInTech}`,
+        text: 'Evento Work in tech ',
     },
     {
-        img: 'https://images.pexels.com/photos/4111660/pexels-photo-4111660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        texto: 'Na universidade de TI, os alunos passam mais tempo debugando suas vidas do que seus códigos, onde café quente e pizzas com mais commits do que toppings reinam, e os professores são oráculos lançando desafios, projetos em grupo são corridas malucas para resolver bugs enquanto se mantém a sanidade - ah, a vida na universidade de TI!'
+        title: "Palestra",
+        img: `${palestra}`,
+        text: 'Palestra de boas vindas dos calouros 2023',
     },
 
 ];
 
 export default function Carrosel() {
 
+
+
     return (
         <>
-            <Grid minWidth={300} padding={2}>
 
-                <Carousel>
+            <Grid
+                container
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                padding={2}
+                id='home'
+            >
+                <Carousel
+                    sx={{
+                        minWidth: { xs: 300, md: 900 },
+                        maxWidth: 1000,
+                    }}
+                >
                     {
-                        itens.map((a, i) => (
+                        itens.map((a) => (
                             <Paper
                                 elevation={5}
+                                sx={{
+                                    bgcolor: '#2884E8',
+                                    borderRadius: 5,
+                                }}
                             >
+                                <Grid
+                                    container
+                                    justifyContent={'center'}
+                                >
+                                    <CardHeader
+                                        title={a.title}
+                                        sx={{
+                                            color: 'White'
+                                        }}
+                                    />
+                                </Grid>
                                 <CardMedia
+                                    component="img"
                                     sx={{
-                                        height: 600,
-                                        borderRadius: 5
+                                        height: 450,
+                                        objectFit: "contain",
+                                        borderRadius: 1,
                                     }}
                                     image={a.img}
                                 />
-                                <CardContent>
-                                    {a.texto}
-                                </CardContent>
+                                <Grid
+                                    container
+                                    justifyContent={'center'}
+                                    flex={1}
+                                >
+                                    <CardContent
+                                        sx={{
+                                            color: 'white',
+                                        }}
+
+                                    >
+                                        {a.text}
+                                    </CardContent>
+                                </Grid>
                             </Paper>
-                        ))
-                    }
+                        ))}
                 </Carousel>
             </Grid>
 

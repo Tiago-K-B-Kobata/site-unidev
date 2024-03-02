@@ -9,12 +9,23 @@ import TopBar from './TopBar.tsx';
 
 function App() {
 
+  const forms = "";
+
+  const scrollToComponent = (componentId) => {
+    const element = document.getElementById(componentId);
+
+    if (element) {
+
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <Box >
 
-      <TopBar />
+      <TopBar onScrollToComponent={scrollToComponent} forms={forms} />
       <Carrosel />
-      <Cards />
+      <Cards forms={forms} />
       <Footer />
 
 

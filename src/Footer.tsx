@@ -1,4 +1,4 @@
-import { Button, Grid, Toolbar, Typography } from "@mui/material";
+import { BottomNavigation, Button, Grid, Toolbar, Typography } from "@mui/material";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Box } from "@mui/system";
@@ -6,11 +6,11 @@ import React from "react";
 
 const socials = [
     {
-        link: 'aa',
+        link: 'https://www.instagram.com/unidev.ti/',
         icon: <InstagramIcon />,
     },
     {
-        link: 'aa',
+        link: 'https://www.linkedin.com/company/consultoria-unidevti/',
         icon: <LinkedInIcon />,
     },
 
@@ -21,32 +21,44 @@ export default function Footer() {
     return (
         <>
 
-            <Box
-                component={'footer'}
+            <BottomNavigation
+                sx={{
+                    mt: 5,
+                    bgcolor: '#2884E8',
+                    flexGrow: 1,
+                }}
             >
-                <Toolbar>
-                    <Grid container justifyContent={"center"} xs={12}>
+
+                <Grid
+                    container
+
+                    padding={1}
+                    color='white'
+                >
+                    <Grid
+                        container
+                        justifyContent={'space-between'}
+                    >
                         <Typography fontSize={20}>
                             Unidev - 2024
                         </Typography>
 
+                        <Box>
+                            {socials.map((a) => (
+                                <Button
+                                    href={a.link}
+                                    sx={{
+                                        color: 'white',
+                                    }}
+                                >
+                                    {a.icon}
+                                </Button>
+                            ))}
+                        </Box>
                     </Grid>
-
-                </Toolbar>
-
-                <Grid container justifyContent={"center"}>
-                    {socials.map((a) => (
-                        <Button
-                            href={a.link}
-
-                        >
-                            {a.icon}
-                        </Button>
-
-                    ))}
-
                 </Grid>
-            </Box>
+
+            </BottomNavigation>
 
         </>
     );

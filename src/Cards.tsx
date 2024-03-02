@@ -1,31 +1,33 @@
 import React from "react";
 import { AppBar, Button, Card, CardActionArea, CardHeader, Grid, Paper, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { borderRadius, Box, minHeight, positions } from "@mui/system";
 import CardContent from '@mui/material/CardContent';
 
 
 const cards = [
     {
-        titulo: 'Card 1',
-        texto: 'Cientistas descobrem que procrastinar é a melhor forma de... bem, ainda estão procrastinando para descobrir. Enquanto isso, um grupo de pombos está realizando uma manifestação na praça principal, reivindicando direitos iguais aos dos corvos. O prefeito, por sua vez, parece mais preocupado com a possibilidade de sua pizza ser entregue fria do que com os assuntos municipais. Enquanto isso, na padaria da esquina, um padeiro está tentando convencer seus pães a se comportarem como pães de verdade, e não como croissants rebeldes. Ah, a vida na cidade pode ser tão... pão com manteiga',
+        titulo: 'Missão',
+        texto: 'Na nossa consultoria de tecnologia, a nossa missão é ser a força que impulsiona o avanço. Trabalhamos incansavelmente para fornecer soluções que não apenas atendam, mas superem as expectativas dos nossos clientes. Queremos ser o parceiro que não só ajuda a empresa a crescer, mas que também contribui para o progresso da sociedade. E fazemos isso promovendo uma cultura de trabalho colaborativa, transparente e respeitosa.',
     },
     {
-        titulo: 'Card 2',
-        texto: 'Cientistas descobrem que procrastinar é a melhor forma de... bem, ainda estão procrastinando para descobrir. Enquanto isso, um grupo de pombos está realizando uma manifestação na praça principal, reivindicando direitos iguais aos dos corvos. O prefeito, por sua vez, parece mais preocupado com a possibilidade de sua pizza ser entregue fria do que com os assuntos municipais. Enquanto isso, na padaria da esquina, um padeiro está tentando convencer seus pães a se comportarem como pães de verdade, e não como croissants rebeldes. Ah, a vida na cidade pode ser tão... pão com manteiga',
+        titulo: 'Conhecimento',
+        texto: 'Acreditamos que o conhecimento é a chave para o sucesso. Estamos sempre aprendendo, mantendo-nos atualizados com as últimas tendências e tecnologias. Nossa equipe é formada por pessoas apaixonadas e especialistas em diversas áreas tecnológicas. Estamos aqui para compartilhar esse conhecimento com nossos clientes, ajudando-os a tomar decisões informadas e estratégicas para o crescimento de seus negócios.',
     },
     {
-        titulo: 'Card 3',
-        texto: 'Cientistas descobrem que procrastinar é a melhor forma de... bem, ainda estão procrastinando para descobrir. Enquanto isso, um grupo de pombos está realizando uma manifestação na praça principal, reivindicando direitos iguais aos dos corvos. O prefeito, por sua vez, parece mais preocupado com a possibilidade de sua pizza ser entregue fria do que com os assuntos municipais. Enquanto isso, na padaria da esquina, um padeiro está tentando convencer seus pães a se comportarem como pães de verdade, e não como croissants rebeldes. Ah, a vida na cidade pode ser tão... pão com manteiga',
+        titulo: 'Inovação',
+        texto: 'Inovação é o que nos mantém em movimento. Estamos constantemente desafiando o status quo, buscando maneiras de fazer as coisas de forma diferente e melhor. Valorizamos a criatividade, a experimentação e a coragem de arriscar. Nosso objetivo é desenvolver soluções que não apenas resolvam os problemas do presente, mas que também antecipem as necessidades do futuro. Queremos ser os pioneiros que transformam ideias em realidade, impulsionando o progresso e inspirando outros a fazerem o mesmo.',
     },
 
 ];
 
-export default function Cards() {
+export default function Cards(props) {
+
+    const { forms } = props;
 
     return (
         <>
 
-            <Grid container xs={12} justifyContent='center' minWidth={300}>
+            <Grid id='sobre' container xs={12} justifyContent='center' minWidth={300}>
 
 
                 {
@@ -34,24 +36,62 @@ export default function Cards() {
                             <Box padding={1}>
                                 <Paper
                                     elevation={3}
+                                    sx={{
+                                        bgcolor: '#2884E8',
+                                        minHeight: 400,
+                                        borderRadius: 5,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between'
+                                    }}
+
                                 >
                                     <CardHeader
                                         title={a.titulo}
+                                        sx={{
+                                            color: 'white'
+                                        }}
                                     />
 
-                                    <CardContent>
+                                    <CardContent
+                                        sx={{
+                                            color: 'white',
+                                            flexGrow: 1
+                                        }}
+                                    >
                                         {a.texto}
                                     </CardContent>
-                                    <Grid container justifyContent={'center'}>
-                                        <Button>Inscrever-se</Button>
-                                    </Grid>
+
+
+
+
                                 </Paper>
                             </Box>
                         </Grid>
                     ))
                 }
-
             </Grid >
+
+            <Grid
+                container
+                justifyContent="center"
+                sx={{
+
+                    marginBottom: 2,
+
+                }}
+            >
+                <Button
+                    href={`${forms}`}
+                    sx={{
+                        bgcolor: '#2884E8',
+                        color: 'white',
+                    }}
+                >
+                    Inscrever-se
+                </Button>
+            </Grid>
+
 
         </>
     );
