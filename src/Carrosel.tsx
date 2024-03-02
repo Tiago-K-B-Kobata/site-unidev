@@ -58,6 +58,8 @@ export default function Carrosel() {
                                 sx={{
                                     bgcolor: '#2884E8',
                                     borderRadius: 5,
+                                    display: 'flex',
+                                    flexDirection: 'column',
                                 }}
                             >
                                 <Grid
@@ -74,20 +76,22 @@ export default function Carrosel() {
                                 <CardMedia
                                     component="img"
                                     sx={{
-                                        height: 450,
+                                        height: 350,
                                         objectFit: "contain",
                                         borderRadius: 1,
+
                                     }}
                                     image={a.img}
                                 />
                                 <Grid
                                     container
                                     justifyContent={'center'}
-                                    flex={1}
+
                                 >
                                     <CardContent
                                         sx={{
                                             color: 'white',
+
                                         }}
 
                                     >
