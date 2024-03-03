@@ -147,6 +147,7 @@ export default function TopBar(props) {
                                             variant="outlined"
                                             color="inherit"
                                             href={forms}
+                                            target="_blank"
                                         >
                                             Inscrever-se
                                         </Button>

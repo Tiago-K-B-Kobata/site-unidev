@@ -9,7 +9,7 @@ import TopBar from './TopBar.tsx';
 
 function App() {
 
-  const forms = "";
+  const forms = "https://forms.gle/PsSsjvgQ6c6GNxcNA";
 
   const scrollToComponent = (componentId) => {
     const element = document.getElementById(componentId);
